@@ -1,6 +1,6 @@
 {
   "name": "react-native-touch-id-ng",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "React Native authentication with the native biometric popup.",
   "scripts": {
     "lint": "node_modules/.bin/eslint .",
