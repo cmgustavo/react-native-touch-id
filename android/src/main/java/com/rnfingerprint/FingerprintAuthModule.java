@@ -73,8 +73,9 @@ public class FingerprintAuthModule extends ReactContextBaseJavaModule implements
     public void authenticate(final String reason, final ReadableMap authConfig, final Callback reactErrorCallback, final Callback reactSuccessCallback) {
         final Activity activity = getCurrentActivity();
         if (inProgress && fingerprintDialog != null && activity != null) {
-            fingerprintDialog.show(activity.getFragmentManager(), FRAGMENT_TAG);
-
+            if (activity.getFragmentManager().findFragmentByTag(FRAGMENT_TAG) == null) {
+                fingerprintDialog.show(activity.getFragmentManager(), FRAGMENT_TAG);
+            }
             return;
         }
         if (inProgress || !isAppActive || activity == null) {
